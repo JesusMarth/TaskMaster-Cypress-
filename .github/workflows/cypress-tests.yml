@@ -34,7 +34,10 @@ jobs:
       run: |
         cd taskmaster-app
         npm start &
-        npx wait-on http://localhost:3000
+        echo "Waiting for React app to start..."
+        npx wait-on http://localhost:3000 --timeout 60000
+        echo "React app is ready!"
+        sleep 5
         
     - name: Run Cypress tests
       run: |
@@ -85,7 +88,10 @@ jobs:
       run: |
         cd taskmaster-app
         npm start &
-        npx wait-on http://localhost:3000
+        echo "Waiting for React app to start..."
+        npx wait-on http://localhost:3000 --timeout 60000
+        echo "React app is ready!"
+        sleep 5
         
     - name: Run Cypress tests in different viewports
       run: |
