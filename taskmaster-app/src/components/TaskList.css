@@ -1,0 +1,330 @@
+/* Estilos para el componente TaskList */
+.task-container {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.6s ease-out;
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.task-header h2 {
+  color: #4a5568;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-info span {
+  color: #718096;
+  font-weight: 600;
+}
+
+.logout-button {
+  background: #e53e3e;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+.logout-button:hover {
+  background: #c53030;
+}
+
+/* Formulario para agregar tareas */
+.add-task-form {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: #f7fafc;
+  border-radius: 12px;
+  border: 2px solid #e2e8f0;
+}
+
+.task-input {
+  flex: 1;
+  padding: 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.task-input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.add-button {
+  background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+  color: white;
+  padding: 1rem 2rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.add-button:hover {
+  background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+}
+
+/* Filtros de tareas */
+.task-filters {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.task-filters button {
+  background: #e2e8f0;
+  color: #4a5568;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.task-filters button:hover {
+  background: #cbd5e0;
+  transform: translateY(-1px);
+}
+
+.task-filters button.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: #667eea;
+}
+
+/* Lista de tareas */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.task-item {
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  animation: slideIn 0.3s ease-out;
+}
+
+.task-item:hover {
+  border-color: #cbd5e0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.task-item.completed {
+  background: #f7fafc;
+  border-color: #c6f6d5;
+}
+
+.task-item.completed .task-text {
+  text-decoration: line-through;
+  color: #718096;
+}
+
+.task-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.task-checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #cbd5e0;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.task-checkbox:checked {
+  background: #48bb78;
+  border-color: #48bb78;
+}
+
+.task-text {
+  flex: 1;
+  font-size: 1.1rem;
+  color: #4a5568;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.task-actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+
+.edit-button {
+  background: #4299e1;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+.edit-button:hover {
+  background: #3182ce;
+}
+
+.delete-button {
+  background: #e53e3e;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+.delete-button:hover {
+  background: #c53030;
+}
+
+/* Modo de edición */
+.edit-task {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.edit-input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 2px solid #667eea;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.save-button {
+  background: #48bb78;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+.save-button:hover {
+  background: #38a169;
+}
+
+.cancel-button {
+  background: #a0aec0;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+.cancel-button:hover {
+  background: #718096;
+}
+
+/* Mensaje cuando no hay tareas */
+.no-tasks {
+  text-align: center;
+  padding: 3rem;
+  color: #718096;
+  font-size: 1.1rem;
+  background: #f7fafc;
+  border-radius: 12px;
+  border: 2px dashed #cbd5e0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .task-container {
+    padding: 1.5rem;
+  }
+  
+  .task-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  
+  .task-header h2 {
+    font-size: 1.75rem;
+  }
+  
+  .user-info {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .add-task-form {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .task-filters {
+    justify-content: center;
+  }
+  
+  .task-filters button {
+    flex: 1;
+    min-width: 0;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .task-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .task-actions {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .edit-task {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+/* Animaciones específicas para tareas */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.task-item {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Estados de hover mejorados */
+.task-item:hover .task-actions {
+  opacity: 1;
+}
+
+.task-actions {
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+} 
