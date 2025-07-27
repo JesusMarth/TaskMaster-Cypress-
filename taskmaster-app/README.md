@@ -1,104 +1,116 @@
-# TaskMaster - Aplicación de Gestión de Tareas
+# TaskMaster React Application
 
-## Descripción
+A modern React-based task management application with user authentication, CRUD operations, and responsive design.
 
-TaskMaster es una aplicación web moderna desarrollada en React para la gestión de tareas personales. Incluye funcionalidades completas de autenticación, gestión de tareas y diseño responsive.
+## Features
 
-## Características
+- **User Authentication**: Registration, login, and logout functionality
+- **Task Management**: Create, edit, complete, and delete tasks
+- **Task Filtering**: View all, active, or completed tasks
+- **Data Persistence**: localStorage for data storage
+- **Responsive Design**: Works on desktop, tablet, and mobile
+- **Form Validation**: Real-time error messages
+- **Modern UI**: Clean and professional interface
 
-- **Autenticación completa**: Registro, login y logout de usuarios
-- **Gestión de tareas**: Crear, editar, completar y eliminar tareas
-- **Filtros avanzados**: Ver todas, activas o completadas
-- **Persistencia de datos**: Almacenamiento local con localStorage
-- **Diseño responsive**: Optimizado para móvil, tablet y desktop
-- **Validación de formularios**: Mensajes de error en tiempo real
-- **Interfaz moderna**: Diseño con gradientes y animaciones suaves
+## Technologies Used
 
-## Tecnologías Utilizadas
+- **React 18**: Modern UI framework
+- **React Router DOM**: Client-side routing
+- **Context API**: Global state management
+- **CSS3**: Modern styling with responsive design
+- **localStorage**: Client-side data persistence
 
-- **React 18**: Framework principal
-- **React Router DOM**: Navegación entre páginas
-- **Context API**: Gestión de estado global
-- **CSS3**: Estilos modernos con Flexbox y Grid
-- **localStorage API**: Persistencia de datos
+## Quick Start
 
-## Instalación
+### Prerequisites
+- Node.js (version 14 or higher)
+- npm or yarn
 
+### Installation
 ```bash
-# Instalar dependencias
+# Install dependencies
 npm install
 
-# Ejecutar en modo desarrollo
+# Start development server
 npm start
-
-# Construir para producción
-npm run build
 ```
 
-## Estructura del Proyecto
+The application will be available at `http://localhost:3000`
+
+### Available Scripts
+
+- `npm start`: Start development server
+- `npm build`: Build for production
+- `npm test`: Run tests
+- `npm run lint`: Run ESLint
+- `npm run format`: Format code with Prettier
+
+## Project Structure
 
 ```
 src/
-├── components/
-│   ├── Login.js          # Componente de inicio de sesión
-│   ├── Register.js       # Componente de registro
-│   ├── TaskList.js       # Componente principal de tareas
-│   ├── Auth.css          # Estilos para autenticación
-│   └── TaskList.css      # Estilos para gestión de tareas
+├── components/          # React components
+│   ├── Login.js        # Login form component
+│   ├── Register.js     # Registration form component
+│   ├── TaskList.js     # Main task management component
+│   ├── Auth.css        # Authentication styles
+│   └── TaskList.css    # Task list styles
 ├── context/
-│   └── AuthContext.js    # Contexto de autenticación
-├── App.js                # Componente principal
-├── App.css               # Estilos globales
-└── index.js              # Punto de entrada
+│   └── AuthContext.js  # Authentication context
+├── App.js              # Main application component
+├── App.css             # Global styles
+└── index.js            # Application entry point
 ```
 
-## Funcionalidades
+## Features Overview
 
-### Autenticación
-- Registro de usuarios con validación de email y contraseña
-- Login con credenciales almacenadas
-- Logout con limpieza de sesión
-- Redirección automática según estado de autenticación
+### Authentication
+- User registration with email and password
+- User login with validation
+- Secure logout functionality
+- Session persistence
 
-### Gestión de Tareas
-- Crear nuevas tareas con validación
-- Editar tareas existentes en tiempo real
-- Marcar/desmarcar tareas como completadas
-- Eliminar tareas individuales
-- Filtros por estado (todas, activas, completadas)
+### Task Management
+- Create new tasks with validation
+- Edit existing tasks
+- Mark tasks as complete/incomplete
+- Delete tasks with confirmation
+- Filter tasks by status
 
-### Características de UX
-- Interfaz intuitiva y moderna
-- Feedback visual inmediato
-- Navegación fluida entre páginas
-- Diseño responsive para todos los dispositivos
-- Animaciones suaves y transiciones
+### User Experience
+- Responsive design for all devices
+- Real-time form validation
+- Intuitive navigation
+- Clean and modern interface
 
-## Scripts Disponibles
+## Development
 
-- `npm start`: Ejecuta la aplicación en modo desarrollo
-- `npm run build`: Construye la aplicación para producción
-- `npm test`: Ejecuta las pruebas unitarias
-- `npm run eject`: Expone la configuración de webpack (irreversible)
+### Code Quality
+- ESLint configuration for code quality
+- Prettier for code formatting
+- Consistent coding standards
 
-## Configuración
+### State Management
+- React Context API for global state
+- Local component state for UI interactions
+- localStorage for data persistence
 
-La aplicación utiliza localStorage para persistencia de datos. No requiere configuración adicional para funcionar localmente.
+## Deployment
 
-## Compatibilidad
+The application is ready for production deployment with:
+- Optimized build process
+- Environment variable support
+- Responsive design implementation
+- Performance optimizations
 
-- **Navegadores**: Chrome, Firefox, Safari, Edge
-- **Dispositivos**: Móvil, tablet, desktop
-- **Sistemas**: Windows, macOS, Linux
+## Contributing
 
-## Contribución
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Run tests and linting
+5. Submit a pull request
 
-1. Fork el repositorio
-2. Crea una rama para tu feature
-3. Implementa tus cambios
-4. Ejecuta las pruebas
-5. Envía un Pull Request
+## License
 
-## Licencia
-
-Este proyecto está bajo la Licencia MIT.
+This project is licensed under the MIT License.

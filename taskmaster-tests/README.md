@@ -1,235 +1,167 @@
-# TaskMaster - Pruebas E2E con Cypress
+# TaskMaster Cypress Test Suite
 
-## Descripción
+This project contains a comprehensive set of E2E (End-to-End) automated tests for the TaskMaster application using Cypress. The tests cover all major application functionalities including authentication, task management, and responsive design.
 
-Este proyecto contiene un conjunto completo de pruebas automatizadas E2E (End-to-End) para la aplicación TaskMaster utilizando Cypress. Las pruebas cubren todas las funcionalidades principales de la aplicación, incluyendo autenticación, gestión de tareas y diseño responsive.
+## Test Coverage
 
-## Características de las Pruebas
+### Authentication Tests
+- User registration with validation
+- User login with valid/invalid credentials
+- Logout functionality
+- Form validation and error handling
+- Session management
 
-- **Cobertura completa**: 15+ casos de prueba automatizados
-- **Fixtures de datos**: Datos de prueba reutilizables y organizados
-- **Comandos personalizados**: Funciones reutilizables para testing
-- **Pruebas responsive**: Verificación en múltiples viewports
-- **Buenas prácticas**: Selectores estables, código modular
-- **Integración continua**: Configuración para GitHub Actions
+### Task Management Tests
+- Create, read, update, delete tasks
+- Task completion status
+- Task filtering (all, active, completed)
+- Data persistence verification
+- Edge cases and error scenarios
 
-## Estructura del Proyecto
+### Integration Tests
+- Complete user workflows
+- Cross-feature functionality
+- Data consistency verification
+- User experience flows
+
+### Responsive Design Tests
+- Mobile viewport testing (375x667)
+- Tablet viewport testing (768x1024)
+- Desktop viewport testing (1280x720)
+- Large desktop viewport testing (1920x1080)
+
+## Project Structure
 
 ```
 cypress/
-├── e2e/
-│   ├── authentication.cy.js    # Pruebas de autenticación
-│   ├── task-management.cy.js   # Pruebas de gestión de tareas
-│   └── integration.cy.js       # Pruebas de integración
-├── fixtures/
-│   ├── users.json              # Datos de usuarios de prueba
-│   └── tasks.json              # Datos de tareas de prueba
-└── support/
-    ├── e2e.js                  # Configuración y comandos principales
-    └── commands.js             # Comandos personalizados adicionales
+├── e2e/                    # Test files
+│   ├── authentication.cy.js    # Authentication tests
+│   ├── task-management.cy.js   # Task management tests
+│   └── integration.cy.js       # Integration tests
+├── fixtures/              # Test data
+│   ├── users.json         # User test data
+│   └── tasks.json         # Task test data
+├── support/               # Support files
+│   ├── e2e.js            # Global configuration
+│   └── commands.js       # Custom commands
+└── screenshots/          # Test screenshots (generated)
 ```
 
-## Instalación
+## Quick Start
 
+### Prerequisites
+- Node.js (version 14 or higher)
+- TaskMaster React application running on localhost:3000
+
+### Installation
 ```bash
-# Instalar dependencias
+# Install dependencies
 npm install
 
-# Ejecutar pruebas en modo interactivo
-npx cypress open
+# Open Cypress Test Runner
+npm run cypress:open
 
-# Ejecutar pruebas en modo headless
-npx cypress run
+# Run tests in headless mode
+npm run cypress:run
 ```
 
-## Tipos de Pruebas
+## Test Configuration
 
-### Autenticación
-- Registro de usuarios nuevos
-- Login con credenciales válidas
-- Login con credenciales inválidas
-- Logout exitoso
-- Redirección automática
+### Cypress Configuration
+- **Base URL**: http://localhost:3000
+- **Viewport**: 1280x720 (default)
+- **Timeouts**: 10 seconds
+- **Video Recording**: Enabled
+- **Screenshot Capture**: On failure
 
-### Gestión de Tareas
-- Crear nuevas tareas
-- Editar tareas existentes
-- Marcar/desmarcar como completadas
-- Eliminar tareas
-- Filtros por estado
+### Custom Commands
+- `cy.login()`: Login with test credentials
+- `cy.register()`: Register new user
+- `cy.addTask()`: Add new task
+- `cy.editTask()`: Edit existing task
+- `cy.deleteTask()`: Delete task
+- `cy.toggleTask()`: Toggle task completion
+- `cy.filterTasks()`: Filter tasks by status
 
-### Integración
-- Flujo completo de usuario nuevo
-- Login directo con usuario existente
-- Funcionamiento responsive
-
-### Responsive Design
-- Verificación en móvil (375x667)
-- Verificación en desktop (1280x720)
-
-## Comandos Personalizados
-
-### Autenticación
-- `cy.register(email, password, confirmPassword)`: Registrar un nuevo usuario
-- `cy.login(email, password)`: Iniciar sesión
-- `cy.logout()`: Cerrar sesión
-
-### Gestión de Tareas
-- `cy.addTask(text)`: Agregar una nueva tarea
-- `cy.editTask(taskId, newText)`: Editar una tarea existente
-- `cy.completeTask(taskId)`: Marcar tarea como completada
-- `cy.deleteTask(taskId)`: Eliminar una tarea
-
-### Utilidades
-- `cy.clearAppStorage()`: Limpiar localStorage
-- `cy.setViewport(device)`: Cambiar viewport (mobile, tablet, desktop)
-
-## Configuración
-
-### cypress.config.js
-```javascript
-module.exports = {
-  e2e: {
-    baseUrl: 'http://localhost:3000',
-    viewportWidth: 1280,
-    viewportHeight: 720,
-    defaultCommandTimeout: 10000,
-    video: true,
-    screenshotOnRunFailure: true
-  }
-}
-```
+## Test Data Management
 
 ### Fixtures
+- **users.json**: Test user credentials and data
+- **tasks.json**: Sample task data for testing
 
-#### users.json
-```json
-{
-  "validUser": {
-    "email": "test@taskmaster.com",
-    "password": "password123"
-  },
-  "newUser": {
-    "email": "newuser@taskmaster.com",
-    "password": "newpassword123",
-    "confirmPassword": "newpassword123"
-  }
-}
-```
+### Test Users
+- Valid user for login tests
+- New user for registration tests
+- Invalid user for error testing
 
-#### tasks.json
-```json
-{
-  "taskToAdd": {
-    "text": "Nueva tarea de prueba"
-  },
-  "sampleTasks": [
-    {"text": "Completar proyecto de testing"},
-    {"text": "Revisar documentación de Cypress"},
-    {"text": "Preparar presentación del equipo"}
-  ]
-}
-```
+## Best Practices Implemented
 
-## Ejecución de Pruebas
+- **Page Object Model**: Organized test structure
+- **Custom Commands**: Reusable test actions
+- **Data-Driven Testing**: Using fixtures for test data
+- **Stable Selectors**: data-testid attributes
+- **Error Handling**: Comprehensive validation
+- **Responsive Testing**: Multi-viewport verification
 
-### Modo Interactivo
+## CI/CD Integration
+
+The test suite is integrated with GitHub Actions for:
+- Automated testing on every push
+- Test result reporting
+- Screenshot and video artifacts
+- Cross-browser testing
+
+## Running Tests
+
+### Interactive Mode
 ```bash
-npx cypress open
+npm run cypress:open
 ```
 
-### Modo Headless
+### Headless Mode
 ```bash
-npx cypress run
+npm run cypress:run
 ```
 
-### Pruebas Específicas
+### Specific Test Files
 ```bash
-# Ejecutar solo pruebas de autenticación
 npx cypress run --spec "cypress/e2e/authentication.cy.js"
-
-# Ejecutar solo pruebas de tareas
-npx cypress run --spec "cypress/e2e/task-management.cy.js"
 ```
 
-### Navegadores Específicos
+### Different Browsers
 ```bash
-# Chrome
 npx cypress run --browser chrome
-
-# Firefox
 npx cypress run --browser firefox
-
-# Edge
-npx cypress run --browser edge
 ```
 
-## Buenas Prácticas Implementadas
+## Test Reports
 
-### Selectores
-- Uso de `data-testid` en lugar de clases o texto
-- Selectores estables y mantenibles
-- Evitar selectores frágiles
-
-### Organización
-- Pruebas agrupadas por funcionalidad
-- Fixtures para datos de prueba
-- Comandos personalizados reutilizables
-
-### Limpieza
-- Limpieza de localStorage entre pruebas
-- Estado consistente para cada test
-- Aislamiento de pruebas
-
-## Integración Continua
-
-El proyecto incluye configuración para GitHub Actions que ejecuta las pruebas automáticamente en cada push y pull request.
-
-### Workflow (.github/workflows/cypress-tests.yml)
-- Ejecuta pruebas en modo headless
-- Genera reportes de resultados
-- Sube screenshots y videos en caso de fallo
+- **Screenshots**: Captured on test failures
+- **Videos**: Recorded for all test runs
+- **Console Logs**: Available for debugging
+- **Test Results**: Detailed pass/fail reporting
 
 ## Troubleshooting
 
-### Problemas Comunes
+### Common Issues
+1. **Application not running**: Ensure TaskMaster app is running on localhost:3000
+2. **Test timeouts**: Check application performance and network connectivity
+3. **Element not found**: Verify data-testid attributes are present
 
-1. **Aplicación no está corriendo**
-   - Asegúrate de que la aplicación React esté ejecutándose en `http://localhost:3000`
-
-2. **Pruebas fallan por timing**
-   - Aumenta `defaultCommandTimeout` en la configuración
-
-3. **Elementos no encontrados**
-   - Verifica que los `data-testid` estén correctos
-   - Asegúrate de que la aplicación esté completamente cargada
-
-### Debugging
+### Debug Mode
 ```bash
-# Ejecutar con debug
-DEBUG=cypress:* npx cypress run
-
-# Pausar en fallos
-npx cypress run --no-exit
+# Run with debug logging
+DEBUG=cypress:* npm run cypress:run
 ```
 
-## Contribución
+## Contributing
 
-Para agregar nuevas pruebas:
+1. Fork the repository
+2. Create a feature branch
+3. Add or update tests
+4. Ensure all tests pass
+5. Submit a pull request
 
-1. Crea el archivo de prueba en `cypress/e2e/`
-2. Agrega datos necesarios en `cypress/fixtures/`
-3. Crea comandos personalizados si es necesario
-4. Ejecuta las pruebas para verificar que funcionan
-5. Documenta las nuevas funcionalidades
+## License
 
-## Tecnologías
-
-- **Cypress 13**: Framework de testing E2E
-- **JavaScript**: Lenguaje de programación
-- **GitHub Actions**: Integración continua
-- **Node.js**: Entorno de ejecución
-
-## Licencia
-
-Este proyecto está bajo la Licencia MIT. 
+This project is licensed under the MIT License. 
