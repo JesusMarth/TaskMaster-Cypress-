@@ -35,9 +35,16 @@ jobs:
         cd taskmaster-app
         npm start &
         echo "Waiting for React app to start..."
-        npx wait-on http://localhost:3000 --timeout 60000
-        echo "React app is ready!"
-        sleep 5
+        # Wait for the app to be ready using curl
+        for i in {1..30}; do
+          if curl -s http://localhost:3000 > /dev/null; then
+            echo "React app is ready!"
+            break
+          fi
+          echo "Waiting... attempt $i/30"
+          sleep 2
+        done
+        sleep 3
         
     - name: Run Cypress tests
       run: |
@@ -89,9 +96,16 @@ jobs:
         cd taskmaster-app
         npm start &
         echo "Waiting for React app to start..."
-        npx wait-on http://localhost:3000 --timeout 60000
-        echo "React app is ready!"
-        sleep 5
+        # Wait for the app to be ready using curl
+        for i in {1..30}; do
+          if curl -s http://localhost:3000 > /dev/null; then
+            echo "React app is ready!"
+            break
+          fi
+          echo "Waiting... attempt $i/30"
+          sleep 2
+        done
+        sleep 3
         
     - name: Run Cypress tests in different viewports
       run: |
