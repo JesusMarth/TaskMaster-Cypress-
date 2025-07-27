@@ -4,6 +4,7 @@ import './App.css';
 import Login from './components/Login';
 import Register from './components/Register';
 import TaskList from './components/TaskList';
+import AboutTests from './components/AboutTests';
 import { AuthProvider, useAuth } from './context/AuthContext';
 
 // Componente para proteger rutas
@@ -24,6 +25,7 @@ function App() {
             <Routes>
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              <Route path="/about-tests" element={<AboutTests />} />
               <Route 
                 path="/" 
                 element={

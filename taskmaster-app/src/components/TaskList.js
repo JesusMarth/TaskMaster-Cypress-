@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 import './TaskList.css';
 
 const TaskList = () => {
@@ -11,6 +12,7 @@ const TaskList = () => {
   const [error, setError] = useState('');
   
   const { currentUser, logout } = useAuth();
+  const navigate = useNavigate();
 
   // Cargar tareas del localStorage al montar el componente
   useEffect(() => {
@@ -102,12 +104,23 @@ const TaskList = () => {
     logout();
   };
 
+  const handleAboutTests = () => {
+    navigate('/about-tests');
+  };
+
   return (
     <div className="task-container">
       <div className="task-header">
         <h2 data-testid="task-title">Mis Tareas</h2>
         <div className="user-info">
           <span data-testid="user-email">{currentUser.email}</span>
+          <button 
+            onClick={handleAboutTests}
+            data-testid="about-tests-button"
+            className="about-tests-button"
+          >
+            🧪 About Tests
+          </button>
           <button 
             onClick={handleLogout}
             data-testid="logout-button"
