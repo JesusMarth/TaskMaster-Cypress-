@@ -23,12 +23,12 @@ jobs:
     - name: Install dependencies for React app
       run: |
         cd taskmaster-app
-        npm ci
+        npm install
         
     - name: Install dependencies for Cypress tests
       run: |
         cd taskmaster-tests
-        npm ci
+        npm install
         
     - name: Start React app
       run: |
@@ -77,9 +77,9 @@ jobs:
     - name: Install dependencies
       run: |
         cd taskmaster-app
-        npm ci
+        npm install
         cd ../taskmaster-tests
-        npm ci
+        npm install
         
     - name: Start React app
       run: |
