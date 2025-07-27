@@ -34,17 +34,9 @@ jobs:
       run: |
         cd taskmaster-app
         npm start &
-        echo "Waiting for React app to start..."
-        # Wait for the app to be ready using curl
-        for i in {1..30}; do
-          if curl -s http://localhost:3000 > /dev/null; then
-            echo "React app is ready!"
-            break
-          fi
-          echo "Waiting... attempt $i/30"
-          sleep 2
-        done
-        sleep 3
+        echo "Starting React app..."
+        sleep 30
+        echo "React app should be ready now"
         
     - name: Run Cypress tests
       run: |
@@ -95,17 +87,9 @@ jobs:
       run: |
         cd taskmaster-app
         npm start &
-        echo "Waiting for React app to start..."
-        # Wait for the app to be ready using curl
-        for i in {1..30}; do
-          if curl -s http://localhost:3000 > /dev/null; then
-            echo "React app is ready!"
-            break
-          fi
-          echo "Waiting... attempt $i/30"
-          sleep 2
-        done
-        sleep 3
+        echo "Starting React app..."
+        sleep 30
+        echo "React app should be ready now"
         
     - name: Run Cypress tests in different viewports
       run: |
