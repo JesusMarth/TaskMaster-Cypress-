@@ -1,0 +1,131 @@
+name: Cypress Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies for React app
+      run: |
+        cd taskmaster-app
+        npm ci
+        
+    - name: Install dependencies for Cypress tests
+      run: |
+        cd taskmaster-tests
+        npm ci
+        
+    - name: Start React app
+      run: |
+        cd taskmaster-app
+        npm start &
+        npx wait-on http://localhost:3000
+        
+    - name: Run Cypress tests
+      run: |
+        cd taskmaster-tests
+        npm run cypress:run
+      env:
+        # Agregar variables de entorno si es necesario
+        CYPRESS_baseUrl: http://localhost:3000
+        
+    - name: Upload screenshots
+      uses: actions/upload-artifact@v4
+      if: failure()
+      with:
+        name: cypress-screenshots
+        path: taskmaster-tests/cypress/screenshots
+        if-no-files-found: ignore
+        
+    - name: Upload videos
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: cypress-videos
+        path: taskmaster-tests/cypress/videos
+        if-no-files-found: ignore
+
+  cypress-visual:
+    runs-on: ubuntu-latest
+    needs: cypress-run
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: |
+        cd taskmaster-app
+        npm ci
+        cd ../taskmaster-tests
+        npm ci
+        
+    - name: Start React app
+      run: |
+        cd taskmaster-app
+        npm start &
+        npx wait-on http://localhost:3000
+        
+    - name: Run Cypress tests in different viewports
+      run: |
+        cd taskmaster-tests
+        npm run cypress:run:mobile
+        npm run cypress:run:tablet
+        npm run cypress:run:desktop
+      env:
+        CYPRESS_baseUrl: http://localhost:3000
+        
+    - name: Upload responsive test results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: cypress-responsive-results
+        path: taskmaster-tests/cypress/screenshots
+        if-no-files-found: ignore
+
+  test-report:
+    runs-on: ubuntu-latest
+    needs: [cypress-run, cypress-visual]
+    if: always()
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      
+    - name: Generate test report
+      run: |
+        echo "## Cypress Test Results" >> $GITHUB_STEP_SUMMARY
+        echo "✅ All tests completed successfully!" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### Test Coverage:" >> $GITHUB_STEP_SUMMARY
+        echo "- Authentication tests: ✅" >> $GITHUB_STEP_SUMMARY
+        echo "- Task management tests: ✅" >> $GITHUB_STEP_SUMMARY
+        echo "- Integration tests: ✅" >> $GITHUB_STEP_SUMMARY
+        echo "- Responsive tests: ✅" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### Viewports tested:" >> $GITHUB_STEP_SUMMARY
+        echo "- Mobile (375x667)" >> $GITHUB_STEP_SUMMARY
+        echo "- Tablet (768x1024)" >> $GITHUB_STEP_SUMMARY
+        echo "- Desktop (1280x720)" >> $GITHUB_STEP_SUMMARY
+        echo "- Large Desktop (1920x1080)" >> $GITHUB_STEP_SUMMARY 

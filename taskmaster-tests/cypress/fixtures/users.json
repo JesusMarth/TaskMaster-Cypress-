@@ -1,0 +1,35 @@
+{
+  "validUser": {
+    "email": "test@taskmaster.com",
+    "password": "password123",
+    "invalidPassword": "wrongpassword"
+  },
+  "newUser": {
+    "email": "newuser@taskmaster.com",
+    "password": "newpassword123",
+    "confirmPassword": "newpassword123"
+  },
+  "invalidUser": {
+    "email": "invalid@email",
+    "password": "123",
+    "confirmPassword": "different"
+  },
+  "existingUser": {
+    "email": "existing@taskmaster.com",
+    "password": "existingpass123"
+  },
+  "testUsers": [
+    {
+      "email": "user1@taskmaster.com",
+      "password": "password123"
+    },
+    {
+      "email": "user2@taskmaster.com", 
+      "password": "password456"
+    },
+    {
+      "email": "user3@taskmaster.com",
+      "password": "password789"
+    }
+  ]
+} 

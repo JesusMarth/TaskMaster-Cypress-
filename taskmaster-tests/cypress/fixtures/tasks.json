@@ -1,0 +1,40 @@
+{
+  "sampleTasks": [
+    {
+      "text": "Completar proyecto de testing",
+      "completed": false
+    },
+    {
+      "text": "Revisar documentación de Cypress",
+      "completed": true
+    },
+    {
+      "text": "Preparar presentación del equipo",
+      "completed": false
+    },
+    {
+      "text": "Actualizar dependencias del proyecto",
+      "completed": false
+    },
+    {
+      "text": "Escribir casos de prueba adicionales",
+      "completed": true
+    }
+  ],
+  "taskToAdd": {
+    "text": "Nueva tarea de prueba",
+    "editedText": "Tarea editada de prueba"
+  },
+  "emptyTask": {
+    "text": ""
+  },
+  "longTask": {
+    "text": "Esta es una tarea muy larga que contiene muchas palabras para probar cómo se comporta la aplicación cuando el texto de la tarea es extenso y necesita ser manejado correctamente en la interfaz de usuario"
+  },
+  "specialCharactersTask": {
+    "text": "Tarea con caracteres especiales: áéíóú ñ @#$%^&*()_+-=[]{}|;':\",./<>?"
+  },
+  "numbersTask": {
+    "text": "Tarea con números 1234567890"
+  }
+} 
