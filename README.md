@@ -9,16 +9,28 @@ TaskMaster is a React-based task management application with user authentication
 ## 🎥 Test Demonstrations
 
 ### Authentication Tests
-![Authentication Tests](cypress-videos/authentication.cy.js.mp4)
+<video width="100%" controls>
+  <source src="cypress-videos/authentication.cy.js.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ### Task Management Tests
-![Task Management Tests](cypress-videos/task-management.cy.js.mp4)
+<video width="100%" controls>
+  <source src="cypress-videos/task-management.cy.js.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ### Integration Tests
-![Integration Tests](cypress-videos/integration.cy.js.mp4)
+<video width="100%" controls>
+  <source src="cypress-videos/integration.cy.js.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ### Validation Tests
-![Validation Tests](cypress-videos/validation-test.cy.js.mp4)
+<video width="100%" controls>
+  <source src="cypress-videos/validation-test.cy.js.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ## 🚀 Quick Start
 
