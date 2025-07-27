@@ -12,80 +12,108 @@ const AboutTests = () => {
   return (
     <div className="about-tests-container">
       <div className="about-tests-header">
-        <button 
-          onClick={handleBackToApp}
-          className="back-button"
-          data-testid="back-to-app-button"
-        >
-          ← Back to TaskMaster
-        </button>
-        <h1>🧪 About Our Tests</h1>
-        <p>Comprehensive E2E testing demonstration with Cypress</p>
+                  <button 
+            onClick={handleBackToApp}
+            className="back-button"
+            data-testid="back-to-app-button"
+          >
+            ← Volver a TaskMaster
+          </button>
+        <h1>🧪 Sobre Nuestras Pruebas</h1>
+        <p>Demostración completa de pruebas E2E con Cypress</p>
       </div>
 
       <div className="about-tests-content">
         <section className="test-section">
-          <h2>📋 Test Overview</h2>
+          <h2>📋 Resumen de Pruebas</h2>
           <p>
-            This project demonstrates professional E2E testing practices using Cypress. 
-            All tests are automated and cover the complete user journey from registration 
-            to task management.
+            Este proyecto demuestra prácticas profesionales de pruebas E2E usando Cypress. 
+            Todas las pruebas están automatizadas y cubren el flujo completo del usuario 
+            desde el registro hasta la gestión de tareas.
           </p>
         </section>
 
         <section className="test-section">
-          <h2>🎥 Test Demonstrations</h2>
+          <h2>🎥 Demostraciones de Pruebas</h2>
           
           <div className="video-grid">
             <div className="video-item">
-              <h3>Authentication Tests</h3>
-              <div className="video-placeholder">
-                <div className="video-icon">🎬</div>
-                <p>User registration, login, and logout flows</p>
+              <h3>Pruebas de Autenticación</h3>
+              <div className="video-preview">
+                <video 
+                  controls 
+                  preload="metadata"
+                  poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23667eea'/%3E%3Ctext x='200' y='125' text-anchor='middle' fill='white' font-size='18'%3E🎬 Pruebas de Autenticación%3C/text%3E%3C/svg%3E"
+                >
+                  <source src="/cypress-videos/authentication.cy.js.mp4" type="video/mp4" />
+                  Tu navegador no soporta el elemento video.
+                </video>
+                <p>Flujos de registro, login y logout de usuarios</p>
                 <div className="test-details">
-                  <span>✅ Registration validation</span>
-                  <span>✅ Login with valid/invalid credentials</span>
-                  <span>✅ Session management</span>
+                  <span>✅ Validación de registro</span>
+                  <span>✅ Login con credenciales válidas/inválidas</span>
+                  <span>✅ Gestión de sesiones</span>
                 </div>
               </div>
             </div>
 
             <div className="video-item">
-              <h3>Task Management Tests</h3>
-              <div className="video-placeholder">
-                <div className="video-icon">🎬</div>
-                <p>Complete CRUD operations for tasks</p>
+              <h3>Pruebas de Gestión de Tareas</h3>
+              <div className="video-preview">
+                <video 
+                  controls 
+                  preload="metadata"
+                  poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%2348bb78'/%3E%3Ctext x='200' y='125' text-anchor='middle' fill='white' font-size='18'%3E🎬 Pruebas de Gestión de Tareas%3C/text%3E%3C/svg%3E"
+                >
+                  <source src="/cypress-videos/task-management.cy.js.mp4" type="video/mp4" />
+                  Tu navegador no soporta el elemento video.
+                </video>
+                <p>Operaciones CRUD completas para tareas</p>
                 <div className="test-details">
-                  <span>✅ Create new tasks</span>
-                  <span>✅ Edit existing tasks</span>
-                  <span>✅ Mark tasks as complete</span>
-                  <span>✅ Delete tasks</span>
+                  <span>✅ Crear nuevas tareas</span>
+                  <span>✅ Editar tareas existentes</span>
+                  <span>✅ Marcar tareas como completadas</span>
+                  <span>✅ Eliminar tareas</span>
                 </div>
               </div>
             </div>
 
             <div className="video-item">
-              <h3>Integration Tests</h3>
-              <div className="video-placeholder">
-                <div className="video-icon">🎬</div>
-                <p>End-to-end user workflows</p>
+              <h3>Pruebas de Integración</h3>
+              <div className="video-preview">
+                <video 
+                  controls 
+                  preload="metadata"
+                  poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23f39c12'/%3E%3Ctext x='200' y='125' text-anchor='middle' fill='white' font-size='18'%3E🎬 Pruebas de Integración%3C/text%3E%3C/svg%3E"
+                >
+                  <source src="/cypress-videos/integration.cy.js.mp4" type="video/mp4" />
+                  Tu navegador no soporta el elemento video.
+                </video>
+                <p>Flujos de trabajo completos del usuario</p>
                 <div className="test-details">
-                  <span>✅ Complete user journey</span>
-                  <span>✅ Cross-feature functionality</span>
-                  <span>✅ Data consistency</span>
+                  <span>✅ Viaje completo del usuario</span>
+                  <span>✅ Funcionalidad entre características</span>
+                  <span>✅ Consistencia de datos</span>
                 </div>
               </div>
             </div>
 
             <div className="video-item">
-              <h3>Validation Tests</h3>
-              <div className="video-placeholder">
-                <div className="video-icon">🎬</div>
-                <p>Form validation and error handling</p>
+              <h3>Pruebas de Validación</h3>
+              <div className="video-preview">
+                <video 
+                  controls 
+                  preload="metadata"
+                  poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23e74c3c'/%3E%3Ctext x='200' y='125' text-anchor='middle' fill='white' font-size='18'%3E🎬 Pruebas de Validación%3C/text%3E%3C/svg%3E"
+                >
+                  <source src="/cypress-videos/validation-test.cy.js.mp4" type="video/mp4" />
+                  Tu navegador no soporta el elemento video.
+                </video>
+                <p>Validación de formularios y manejo de errores</p>
                 <div className="test-details">
-                  <span>✅ Input validation</span>
-                  <span>✅ Error message display</span>
-                  <span>✅ Edge case handling</span>
+                  <span>✅ Validación de entrada</span>
+                  <span>✅ Visualización de mensajes de error</span>
+                  <span>✅ Manejo de casos extremos</span>
                 </div>
               </div>
             </div>
@@ -93,33 +121,33 @@ const AboutTests = () => {
         </section>
 
         <section className="test-section">
-          <h2>🛠️ Testing Technologies</h2>
+          <h2>🛠️ Tecnologías de Testing</h2>
           <div className="tech-grid">
             <div className="tech-item">
               <h4>Cypress</h4>
-              <p>Modern E2E testing framework</p>
+              <p>Framework moderno de testing E2E</p>
             </div>
             <div className="tech-item">
-              <h4>Custom Commands</h4>
-              <p>Reusable test functions</p>
+              <h4>Comandos Personalizados</h4>
+              <p>Funciones de prueba reutilizables</p>
             </div>
             <div className="tech-item">
               <h4>Fixtures</h4>
-              <p>Structured test data</p>
+              <p>Datos de prueba estructurados</p>
             </div>
             <div className="tech-item">
               <h4>GitHub Actions</h4>
-              <p>Automated CI/CD pipeline</p>
+              <p>Pipeline automatizado de CI/CD</p>
             </div>
           </div>
         </section>
 
         <section className="test-section">
-          <h2>📊 Test Coverage</h2>
+          <h2>📊 Cobertura de Pruebas</h2>
           <div className="coverage-stats">
             <div className="stat-item">
               <span className="stat-number">100%</span>
-              <span className="stat-label">User Flows</span>
+              <span className="stat-label">Flujos de Usuario</span>
             </div>
             <div className="stat-item">
               <span className="stat-number">4</span>
@@ -127,7 +155,7 @@ const AboutTests = () => {
             </div>
             <div className="stat-item">
               <span className="stat-number">15+</span>
-              <span className="stat-label">Test Cases</span>
+              <span className="stat-label">Casos de Prueba</span>
             </div>
             <div className="stat-item">
               <span className="stat-number">24/7</span>
@@ -137,14 +165,14 @@ const AboutTests = () => {
         </section>
 
         <section className="test-section">
-          <h2>🎯 Best Practices</h2>
+          <h2>🎯 Mejores Prácticas</h2>
           <ul className="best-practices">
-            <li>✅ Stable selectors using data-testid</li>
-            <li>✅ Modular and reusable test code</li>
-            <li>✅ Comprehensive error handling</li>
-            <li>✅ Responsive design testing</li>
-            <li>✅ Automated CI/CD integration</li>
-            <li>✅ Professional test documentation</li>
+            <li>✅ Selectores estables usando data-testid</li>
+            <li>✅ Código de prueba modular y reutilizable</li>
+            <li>✅ Manejo completo de errores</li>
+            <li>✅ Testing de diseño responsive</li>
+            <li>✅ Integración automatizada de CI/CD</li>
+            <li>✅ Documentación profesional de pruebas</li>
           </ul>
         </section>
       </div>

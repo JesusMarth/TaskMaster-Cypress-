@@ -94,6 +94,10 @@ const Register = () => {
     }
   };
 
+  const handleAboutTests = () => {
+    navigate('/about-tests');
+  };
+
   return (
     <div className="auth-container">
       <div className="auth-card">
@@ -180,6 +184,13 @@ const Register = () => {
               Inicia sesión aquí
             </Link>
           </p>
+          <button 
+            onClick={handleAboutTests}
+            data-testid="about-tests-button-register"
+            className="about-tests-button-auth"
+          >
+            🧪 About Tests
+          </button>
         </div>
       </div>
     </div>

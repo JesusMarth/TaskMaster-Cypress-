@@ -73,6 +73,10 @@ const Login = () => {
     }
   };
 
+  const handleAboutTests = () => {
+    navigate('/about-tests');
+  };
+
   return (
     <div className="auth-container">
       <div className="auth-card">
@@ -140,6 +144,13 @@ const Login = () => {
               Regístrate aquí
             </Link>
           </p>
+          <button 
+            onClick={handleAboutTests}
+            data-testid="about-tests-button-login"
+            className="about-tests-button-auth"
+          >
+            🧪 About Tests
+          </button>
         </div>
       </div>
     </div>
