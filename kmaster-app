@@ -1,0 +1,5 @@
+[33m218ede7[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m Rediseño de About test
+[33mb12c0ef[m actualicé taskmaster-app con título TaskList e icono personalizado
+[33madc58e4[m forzando actualización del título y descripción
+[33ma25edf6[m cambié título a TaskList y configuré icono personalizado
+[33m634e8f7[m reorganicé archivos para despliegue en vercel
